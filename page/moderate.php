@@ -15,6 +15,7 @@
 	<table border=1>
 	<tr>
 	<th>Kommentaari id</th>
+	<th>Proffessori id</th>
     <th>Kasutaja id</th>
     <th>Kommentaari aeg</th>
     <th>Kommentaar</th>
@@ -30,10 +31,11 @@
             // input mida välja ei näidata
             echo "<input type='hidden' name='comment_id' value='".$car_array[$i]->comment_id."'>";
             echo "<td>".$car_array[$i]->comment_id."</td>";
-            echo "<td>".$car_array[$i]->user_id."</td>";
-            echo "<td><input name='time' value='".$car_array[$i]->time."' ></td>";
-            echo "<td><input name='comment' value='".$car_array[$i]->comment."' ></td>";
-			echo "<td><input name='confirm' value='".$car_array[$i]->confirm."' ></td>";
+            echo "<td>".$car_array[$i]->pro_id."</td>";
+			echo "<td>".$car_array[$i]->user_id."</td>";
+            echo "<td>".$car_array[$i]->inserted."</td>";
+            echo "<td>".$car_array[$i]->comment."</td>";
+			echo "<td><input name='confirm' value='".$car_array[$i]->accepted."' ></td>";
             echo "<td><input name='update' type='submit'></td>";
             echo "<td><a href='table.php'>cancel</a></td>";
             echo "</form>";
@@ -42,10 +44,11 @@
             
             echo "<tr>";
             echo "<td>".$car_array[$i]->comment_id."</td>";
+			echo "<td>".$car_array[$i]->pro_id."</td>";
             echo "<td>".$car_array[$i]->user_id."</td>";
-            echo "<td>".$car_array[$i]->time."</td>";
+            echo "<td>".$car_array[$i]->inserted."</td>";
             echo "<td>".$car_array[$i]->comment."</td>";
-			echo "<td>".$car_array[$i]->confirm."</td>";
+			echo "<td>".$car_array[$i]->accepted."</td>";
 			echo "<td><a href='?edit=".$car_array[$i]->id."'>edit</a></td>";
 			
 			
