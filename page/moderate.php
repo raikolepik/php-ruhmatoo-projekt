@@ -11,10 +11,10 @@ $keyword = "";
 	if(isset($_GET["keyword"])){
 		$keyword = $_GET["keyword"];
 		
-		$car_array = getAllData($keyword);
+		$procomments_array = getAllData($keyword);
 		
 	}else{
-		$car_array = getAllData();
+		$procomments_array = getAllData();
 	}
 ?>
 <h1>Kommentaarid</h1>
@@ -34,21 +34,21 @@ $keyword = "";
 	</tr>
 <?php
 
-	for($i = 0; $i < count($car_array); $i++){
+	for($i = 0; $i < count($procomments_array); $i++){
 		
 	
 			echo "<tr>";
             echo "<form action='table.php' method='get'>";
             // input mida välja ei näidata
-            echo "<input type='hidden' name='comment_id' value='".$car_array[$i]->comment_id."'>";
-            echo "<td>".$car_array[$i]->comment_id."</td>";
-            echo "<td>".$car_array[$i]->pro_id."</td>";
-			echo "<td>".$car_array[$i]->user_id."</td>";
-            echo "<td>".$car_array[$i]->inserted."</td>";
-            echo "<td>".$car_array[$i]->comment."</td>";
-			echo "<td><input name='confirm' value='".$car_array[$i]->accepted."' ></td>";
+            echo "<input type='hidden' name='id' value='".$procomments_array[$i]->id."'>";
+            echo "<td>".$procomments_array[$i]->id."</td>";
+            echo "<td>".$procomments_array[$i]->pro_id."</td>";
+			echo "<td>".$procomments_array[$i]->user_id."</td>";
+            echo "<td>".$procomments_array[$i]->inserted."</td>";
+            echo "<td>".$procomments_array[$i]->comment."</td>";
+			echo "<td><input name='confirm' value='".$procomments_array[$i]->accepted."' ></td>";
             echo "<td><input name='update' type='submit'></td>";
-            echo "<td><a href='table.php'>cancel</a></td>";
+            
             echo "</form>";
             echo "</tr>";
 		 

@@ -30,7 +30,7 @@
 		}
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-        // deleted IS NULL - ei ole kustutatud
+        // accepted IS NULL - ei ole vastu võetud
         
 		$stmt = $mysqli->prepare("SELECT id, pro_id, user_id, inserted, comment, accepted FROM procomment 
 		WHERE accepted IS NULL AND (inserted LIKE ? OR comment LIKE ? OR accepted like ?)");
@@ -49,14 +49,14 @@
             //selle hetkeni kui lisame massiivi
                
             // tühi objekt kus hoiame väärtusi
-            $car = new StdClass();
+            $procomments = new StdClass();
             
-            $car->id = $id_from_db;
-            $car->user_id = $user_id_from_db; 
-			$car->carmodel = $carmodel_from_db;
-			$car->mileage = $mileage_from_db;
-            $car->cost = $cost_from_db;
-			$car->description = $description_from_db;
+            $procomments->id = $id_from_db;
+            $procomments->pro_id = $pro_id_from_db; 
+			$procomments->user_id = $user_id_from_db;
+			$procomments->inserted = $inserted_from_db;
+            $procomments->comment = $comment_from_db;
+			$procomments->accepted = $accepted_from_db;
             
             //lisan massiivi (auto lisan massiivi)
             array_push($array, $procomments);
