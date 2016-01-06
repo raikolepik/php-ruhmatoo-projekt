@@ -33,12 +33,12 @@
         // deleted IS NULL - ei ole kustutatud
         
 		$stmt = $mysqli->prepare("SELECT id, pro_id, user_id, inserted, comment, accepted FROM procomment 
-		WHERE deleted IS NULL AND (inserted LIKE ? OR comment LIKE ? OR accepted like ?)");
+		WHERE accepted IS NULL AND (inserted LIKE ? OR comment LIKE ? OR accepted like ?)");
         
 		echo $mysqli->error;
 		
-		$stmt->bind_param("ssss", $search, $search, $search, $search);
-        $stmt->bind_result($id_from_db, $user_id_from_db, $carmodel_from_db, $mileage_from_db, $cost_from_db, $description_from_db);
+		$stmt->bind_param("sss", $search, $search, $search);
+        $stmt->bind_result($id_from_db, $pro_id_from_db, $user_id_from_db, $inserted_from_db, $comment_from_db, $accepted_from_db);
         $stmt->execute();
 	
 	
@@ -59,7 +59,7 @@
 			$car->description = $description_from_db;
             
             //lisan massiivi (auto lisan massiivi)
-            array_push($array, $car);
+            array_push($array, $procomments);
             //echo "<pre>";
             //var_dump($array);
             //echo "</pre>";
