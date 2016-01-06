@@ -39,7 +39,9 @@ $keyword = "";
 	
 			echo "<tr>";
             echo "<form action='table.php' method='get'>";
+
             // input mida välja ei näidata
+
             echo "<input type='hidden' name='id' value='".$procomments_array[$i]->id."'>";
             echo "<td>".$procomments_array[$i]->id."</td>";
             echo "<td>".$procomments_array[$i]->pro_id."</td>";
