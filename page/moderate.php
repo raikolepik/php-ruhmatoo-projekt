@@ -25,8 +25,8 @@
 
 	for($i = 0; $i < count($car_array); $i++){
 		
-	if(isset($_GET["edit"]) && $_GET["edit"] == $car_array[$i]->id){
-		echo "<tr>";
+	
+			echo "<tr>";
             echo "<form action='table.php' method='get'>";
             // input mida välja ei näidata
             echo "<input type='hidden' name='comment_id' value='".$car_array[$i]->comment_id."'>";
@@ -40,16 +40,7 @@
             echo "<td><a href='table.php'>cancel</a></td>";
             echo "</form>";
             echo "</tr>";
-		 }else{
-            
-            echo "<tr>";
-            echo "<td>".$car_array[$i]->comment_id."</td>";
-			echo "<td>".$car_array[$i]->pro_id."</td>";
-            echo "<td>".$car_array[$i]->user_id."</td>";
-            echo "<td>".$car_array[$i]->inserted."</td>";
-            echo "<td>".$car_array[$i]->comment."</td>";
-			echo "<td>".$car_array[$i]->accepted."</td>";
-			echo "<td><a href='?edit=".$car_array[$i]->id."'>edit</a></td>";
+		 
 			
 			
 			
@@ -62,7 +53,7 @@
 			
             
             echo "</tr>";
-		}
+		
 	
 	
 ?>
